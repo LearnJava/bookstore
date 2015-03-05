@@ -1,19 +1,21 @@
 package org.jellydev.edu.bookstore.ejb.dao;
 
+import org.jellydev.edu.bookstore.ejb.model.Author;
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 
-@Stateless
-public class TypedDao<Author> implements Dao {
+@Stateless(name = "authorDao")
+public class TypedDao implements Dao {
 
     @PersistenceContext(unitName = "bs")
     private EntityManager em;
 
     @Override
-    public Object get(int id) {
-        return null;
+    public Author get(int id) {
+        return em.find(Author.class, id);
     }
 
     @Override
