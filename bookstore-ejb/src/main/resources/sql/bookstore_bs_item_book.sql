@@ -25,16 +25,11 @@ DROP TABLE IF EXISTS `bs_item_book`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `bs_item_book` (
-  `bs_item_book_id` int(11) NOT NULL AUTO_INCREMENT,
-  `bs_item` int(11) NOT NULL,
   `bs_item_book_author` int(11) NOT NULL,
   `bs_item_book_isbn` varchar(15) NOT NULL,
   `bs_item_book_publish_date` date NOT NULL,
-  PRIMARY KEY (`bs_item_book_id`),
-  KEY `bs_item_idx` (`bs_item`),
   KEY `bs_item_book_author_idx` (`bs_item_book_author`),
   CONSTRAINT `bs_item_book_author` FOREIGN KEY (`bs_item_book_author`) REFERENCES `bs_author` (`bs_author_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `bs_item` FOREIGN KEY (`bs_item`) REFERENCES `bs_item` (`bs_item_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
