@@ -26,4 +26,43 @@ public class Log implements Serializable {
     @Column(name = "bs_log_message")
     private String message;
 
+    public Log() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public LogType getType() {
+        return type;
+    }
+
+    public void setType(LogType type) {
+        this.type = type;
+    }
+
+    public Date getDatetime() {
+        return datetime;
+    }
+
+    public void setDatetime(Date datetime) {
+        this.datetime = datetime;
+    }
+
+    public String getHeader() {
+        return header;
+    }
+
+    public void setHeader(String header) {
+        this.header = header;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
 }

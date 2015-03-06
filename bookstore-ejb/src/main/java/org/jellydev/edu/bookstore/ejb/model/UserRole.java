@@ -18,4 +18,27 @@ public class UserRole implements Serializable {
     @Column(name = "bs_user_role_description")
     private String description;
 
+    public UserRole() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getHeader() {
+        return header;
+    }
+
+    public void setHeader(String header) {
+        this.header = header;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
 }

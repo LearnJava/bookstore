@@ -18,4 +18,27 @@ public class LogType implements Serializable {
     @Column(name = "bs_log_type_description")
     private String description;
 
+    public LogType() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getHeader() {
+        return header;
+    }
+
+    public void setHeader(String header) {
+        this.header = header;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
 }

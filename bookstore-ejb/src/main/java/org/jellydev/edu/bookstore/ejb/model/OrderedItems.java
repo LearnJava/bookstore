@@ -19,4 +19,27 @@ public class OrderedItems implements Serializable {
     @JoinColumn(name = "bs_order")
     private Order order;
 
+    public OrderedItems() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public Item getOrderedItem() {
+        return orderedItem;
+    }
+
+    public void setOrderedItem(Item orderedItem) {
+        this.orderedItem = orderedItem;
+    }
+
+    public Order getOrder() {
+        return order;
+    }
+
+    public void setOrder(Order order) {
+        this.order = order;
+    }
+
 }
