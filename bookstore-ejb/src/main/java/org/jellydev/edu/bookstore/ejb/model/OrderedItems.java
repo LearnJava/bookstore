@@ -11,8 +11,12 @@ public class OrderedItems implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, targetEntity = Item.class)
-    @JoinColumn(name = "bs_item")
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @PrimaryKeyJoinColumn
     private Item orderedItem;
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, targetEntity = Order.class)
+    @JoinColumn(name = "bs_order")
+    private Order order;
 
 }
