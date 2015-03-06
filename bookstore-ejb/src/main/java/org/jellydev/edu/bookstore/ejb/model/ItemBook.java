@@ -3,6 +3,7 @@ package org.jellydev.edu.bookstore.ejb.model;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "bs_item_book")
@@ -18,6 +19,14 @@ public class ItemBook extends Item implements Serializable {
 
     @Column(name = "bs_item_book_publish_date")
     private Date publishDate;
+
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinTable(name = "bs_author_book",
+            joinColumns = @JoinColumn(name = "bs_book"),
+            inverseJoinColumns = @JoinColumn(name = "bs_author")
+
+    )
+    private List<Author> authors;
 
     public ItemBook() {
     }

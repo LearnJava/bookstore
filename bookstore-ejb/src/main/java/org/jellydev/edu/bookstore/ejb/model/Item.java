@@ -2,15 +2,19 @@ package org.jellydev.edu.bookstore.ejb.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 
 @Entity
 @Table(name = "bs_item")
-public class Item implements Serializable {
+public abstract class Item implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "bs_item_id")
     private int id;
+
+    @Column(name = "bs_item_add_date")
+    private Date addDate;
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @PrimaryKeyJoinColumn
@@ -31,6 +35,14 @@ public class Item implements Serializable {
 
     public int getId() {
         return id;
+    }
+
+    public Date getAddDate() {
+        return addDate;
+    }
+
+    public void setAddDate(Date addDate) {
+        this.addDate = addDate;
     }
 
     public ItemType getType() {

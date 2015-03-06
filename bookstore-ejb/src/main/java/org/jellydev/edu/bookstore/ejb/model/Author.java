@@ -2,6 +2,7 @@ package org.jellydev.edu.bookstore.ejb.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "bs_author")
@@ -20,6 +21,13 @@ public class Author implements Serializable {
 
     @Column(name = "bs_author_last_name")
     private String lastName;
+
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinTable(name = "bs_author_book",
+        joinColumns = @JoinColumn(name = "bs_author"),
+        inverseJoinColumns = @JoinColumn(name = "bs_book")
+    )
+    private List<ItemBook> itemBooks;
 
     public Author() {
     }
