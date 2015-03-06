@@ -1,10 +1,11 @@
 package org.jellydev.edu.bookstore.ejb.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "bs_item")
-public class Item {
+public class Item implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

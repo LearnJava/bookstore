@@ -1,12 +1,13 @@
 package org.jellydev.edu.bookstore.ejb.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
 @Table(name = "bs_item_book")
 @PrimaryKeyJoinColumn(name = "bs_item_id")
-public class ItemBook extends Item {
+public class ItemBook extends Item implements Serializable {
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @PrimaryKeyJoinColumn
