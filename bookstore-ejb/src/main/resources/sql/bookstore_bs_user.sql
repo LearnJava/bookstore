@@ -18,27 +18,34 @@ USE `bookstore`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `bs_customer_role`
+-- Table structure for table `bs_user`
 --
 
-DROP TABLE IF EXISTS `bs_customer_role`;
+DROP TABLE IF EXISTS `bs_user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `bs_customer_role` (
-  `bs_customer_role_id` int(11) NOT NULL AUTO_INCREMENT,
-  `bs_customer_header` varchar(45) NOT NULL,
-  `bs_customer_description` varchar(200) DEFAULT NULL,
-  PRIMARY KEY (`bs_customer_role_id`)
+CREATE TABLE `bs_user` (
+  `bs_user_id` int(11) NOT NULL AUTO_INCREMENT,
+  `bs_user_registration_date` datetime NOT NULL,
+  `bs_user_role` int(11) NOT NULL,
+  `bs_user_firstname` varchar(100) NOT NULL,
+  `bs_user_lastname` varchar(200) NOT NULL,
+  `bs_user_phone` varchar(12) NOT NULL,
+  `bs_user_email` varchar(200) NOT NULL,
+  `bs_user_address` varchar(250) NOT NULL,
+  PRIMARY KEY (`bs_user_id`),
+  KEY `bs_user_role_idx` (`bs_user_role`),
+  CONSTRAINT `bs_user_role` FOREIGN KEY (`bs_user_role`) REFERENCES `bs_user_role` (`bs_user_role_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `bs_customer_role`
+-- Dumping data for table `bs_user`
 --
 
-LOCK TABLES `bs_customer_role` WRITE;
-/*!40000 ALTER TABLE `bs_customer_role` DISABLE KEYS */;
-/*!40000 ALTER TABLE `bs_customer_role` ENABLE KEYS */;
+LOCK TABLES `bs_user` WRITE;
+/*!40000 ALTER TABLE `bs_user` DISABLE KEYS */;
+/*!40000 ALTER TABLE `bs_user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -50,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-02-25 12:29:46
+-- Dump completed on 2015-03-06 13:50:49

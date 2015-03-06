@@ -28,14 +28,11 @@ CREATE TABLE `bs_order` (
   `bs_order_id` int(11) NOT NULL AUTO_INCREMENT,
   `bs_order_type` int(11) NOT NULL,
   `bs_order_owner` int(11) NOT NULL,
-  `bs_order_status` int(11) NOT NULL,
   `bs_order_total_price` int(11) NOT NULL,
   PRIMARY KEY (`bs_order_id`),
   KEY `bs_order_owner_idx` (`bs_order_owner`),
-  KEY `bs_order_status_idx` (`bs_order_status`),
   KEY `bs_order_type_idx` (`bs_order_type`),
-  CONSTRAINT `bs_order_owner` FOREIGN KEY (`bs_order_owner`) REFERENCES `bs_customer` (`bs_customer_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `bs_order_status` FOREIGN KEY (`bs_order_status`) REFERENCES `bs_order_status` (`bs_order_status_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `bs_order_owner` FOREIGN KEY (`bs_order_owner`) REFERENCES `bs_user` (`bs_user_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `bs_order_type` FOREIGN KEY (`bs_order_type`) REFERENCES `bs_order_type` (`bs_order_type_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -58,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-02-25 12:29:46
+-- Dump completed on 2015-03-06 13:50:49

@@ -18,27 +18,27 @@ USE `bookstore`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `bs_ordered_item`
+-- Table structure for table `bs_user_role`
 --
 
-DROP TABLE IF EXISTS `bs_ordered_item`;
+DROP TABLE IF EXISTS `bs_user_role`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `bs_ordered_item` (
-  `bs_ordered_item_id` int(11) NOT NULL AUTO_INCREMENT,
-  `bs_item` int(11) NOT NULL,
-  `bs_order` int(11) NOT NULL,
-  PRIMARY KEY (`bs_ordered_item_id`)
+CREATE TABLE `bs_user_role` (
+  `bs_user_role_id` int(11) NOT NULL AUTO_INCREMENT,
+  `bs_user_role_header` varchar(50) NOT NULL,
+  `bs_user_role_description` varchar(200) NOT NULL,
+  PRIMARY KEY (`bs_user_role_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `bs_ordered_item`
+-- Dumping data for table `bs_user_role`
 --
 
-LOCK TABLES `bs_ordered_item` WRITE;
-/*!40000 ALTER TABLE `bs_ordered_item` DISABLE KEYS */;
-/*!40000 ALTER TABLE `bs_ordered_item` ENABLE KEYS */;
+LOCK TABLES `bs_user_role` WRITE;
+/*!40000 ALTER TABLE `bs_user_role` DISABLE KEYS */;
+/*!40000 ALTER TABLE `bs_user_role` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -50,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-02-25 12:29:46
+-- Dump completed on 2015-03-06 13:50:49

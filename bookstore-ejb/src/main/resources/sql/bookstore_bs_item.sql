@@ -33,8 +33,8 @@ CREATE TABLE `bs_item` (
   PRIMARY KEY (`bs_item_id`),
   KEY `bs_book_category_idx` (`bs_item_category`),
   KEY `bs_item_type_idx` (`bs_item_type`),
-  CONSTRAINT `bs_item_type` FOREIGN KEY (`bs_item_type`) REFERENCES `bs_item_type` (`bs_item_type_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `bs_item_category` FOREIGN KEY (`bs_item_category`) REFERENCES `bs_item_category` (`bs_item_category_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `bs_item_category` FOREIGN KEY (`bs_item_category`) REFERENCES `bs_item_category` (`bs_item_category_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `bs_item_type` FOREIGN KEY (`bs_item_type`) REFERENCES `bs_item_type` (`bs_item_type_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -56,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-02-25 12:29:46
+-- Dump completed on 2015-03-06 13:50:49

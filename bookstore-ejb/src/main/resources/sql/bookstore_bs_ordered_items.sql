@@ -18,27 +18,31 @@ USE `bookstore`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `bs_order_status`
+-- Table structure for table `bs_ordered_items`
 --
 
-DROP TABLE IF EXISTS `bs_order_status`;
+DROP TABLE IF EXISTS `bs_ordered_items`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `bs_order_status` (
-  `bs_order_status_id` int(11) NOT NULL AUTO_INCREMENT,
-  `bs_order_status_header` varchar(45) NOT NULL,
-  `bs_order_status_description` varchar(200) DEFAULT NULL,
-  PRIMARY KEY (`bs_order_status_id`)
+CREATE TABLE `bs_ordered_items` (
+  `bs_ordered_items_id` int(11) NOT NULL AUTO_INCREMENT,
+  `bs_item` int(11) NOT NULL,
+  `bs_order` int(11) NOT NULL,
+  PRIMARY KEY (`bs_ordered_items_id`),
+  KEY `bs_item_idx` (`bs_item`),
+  KEY `bs_order_idx` (`bs_order`),
+  CONSTRAINT `bs_item` FOREIGN KEY (`bs_item`) REFERENCES `bs_item` (`bs_item_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `bs_order` FOREIGN KEY (`bs_order`) REFERENCES `bs_order` (`bs_order_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `bs_order_status`
+-- Dumping data for table `bs_ordered_items`
 --
 
-LOCK TABLES `bs_order_status` WRITE;
-/*!40000 ALTER TABLE `bs_order_status` DISABLE KEYS */;
-/*!40000 ALTER TABLE `bs_order_status` ENABLE KEYS */;
+LOCK TABLES `bs_ordered_items` WRITE;
+/*!40000 ALTER TABLE `bs_ordered_items` DISABLE KEYS */;
+/*!40000 ALTER TABLE `bs_ordered_items` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -50,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-02-25 12:29:47
+-- Dump completed on 2015-03-06 13:50:49

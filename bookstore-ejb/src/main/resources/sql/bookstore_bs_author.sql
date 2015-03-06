@@ -29,7 +29,7 @@ CREATE TABLE `bs_author` (
   `bs_author_first_name` varchar(100) NOT NULL,
   `bs_author_last_name` varchar(150) NOT NULL,
   PRIMARY KEY (`bs_author_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,6 +38,7 @@ CREATE TABLE `bs_author` (
 
 LOCK TABLES `bs_author` WRITE;
 /*!40000 ALTER TABLE `bs_author` DISABLE KEYS */;
+INSERT INTO `bs_author` VALUES (1,'Art','Kart'),(2,'God','Nose');
 /*!40000 ALTER TABLE `bs_author` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -50,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-02-25 12:29:46
+-- Dump completed on 2015-03-06 13:50:49
