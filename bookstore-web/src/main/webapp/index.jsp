@@ -14,7 +14,7 @@
 <body>
 
     <c:forEach var="author" items="${authors}">
-        <c:out value="${author}" />
+        <c:out value="${author}" /><br />
     </c:forEach>
 
 </body>
