@@ -6,6 +6,9 @@ import java.util.Date;
 
 @Entity
 @Table(name = "bs_user")
+@NamedQueries({
+        @NamedQuery(name = "User.GetAll", query = "select u from User u")
+})
 public class User implements Serializable {
 
     @Id

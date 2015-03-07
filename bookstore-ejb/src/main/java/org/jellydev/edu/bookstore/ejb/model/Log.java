@@ -6,6 +6,9 @@ import java.util.Date;
 
 @Entity
 @Table(name = "bs_log")
+@NamedQueries({
+        @NamedQuery(name = "Log.GetAll", query = "select l from Log l")
+})
 public class Log implements Serializable {
 
     @Id

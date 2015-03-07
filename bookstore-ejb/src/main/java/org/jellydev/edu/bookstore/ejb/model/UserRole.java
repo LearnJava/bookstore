@@ -5,6 +5,9 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "bs_user_role")
+@NamedQueries({
+        @NamedQuery(name = "UserRole.GetAll", query = "select ur from UserRole ur")
+})
 public class UserRole implements Serializable {
 
     @Id

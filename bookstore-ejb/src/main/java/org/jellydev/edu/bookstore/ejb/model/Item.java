@@ -7,6 +7,9 @@ import java.util.List;
 
 @Entity
 @Table(name = "bs_item")
+@NamedQueries({
+        @NamedQuery(name = "Item.GetAll", query = "select i from Item i")
+})
 public abstract class Item implements Serializable {
 
     @Id

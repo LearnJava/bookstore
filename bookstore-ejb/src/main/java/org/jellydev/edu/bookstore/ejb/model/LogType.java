@@ -5,6 +5,9 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "bs_log_type")
+@NamedQueries({
+        @NamedQuery(name = "LogType.GetAll", query = "select lt from LogType lt")
+})
 public class LogType implements Serializable {
 
     @Id

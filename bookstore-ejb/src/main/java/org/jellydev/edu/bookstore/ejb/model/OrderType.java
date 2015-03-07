@@ -5,6 +5,9 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "bs_order_type")
+@NamedQueries({
+        @NamedQuery(name = "OrderType.GetAll", query = "select ot from OrderType ot")
+})
 public class OrderType implements Serializable {
 
     @Id

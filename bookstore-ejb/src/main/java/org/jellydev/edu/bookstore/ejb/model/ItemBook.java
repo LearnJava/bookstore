@@ -8,6 +8,9 @@ import java.util.List;
 @Entity
 @Table(name = "bs_item_book")
 @PrimaryKeyJoinColumn(name = "bs_item_id")
+@NamedQueries({
+        @NamedQuery(name = "ItemBook.GetAll", query = "select ib from ItemBook ib")
+})
 public class ItemBook extends Item implements Serializable {
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)

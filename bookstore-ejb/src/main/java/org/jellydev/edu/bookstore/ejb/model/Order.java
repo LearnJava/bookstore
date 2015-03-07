@@ -6,6 +6,9 @@ import java.util.List;
 
 @Entity
 @Table(name = "bs_order")
+@NamedQueries({
+        @NamedQuery(name = "Order.GetAll", query = "select o from Order o")
+})
 public class Order implements Serializable {
 
     @Id
