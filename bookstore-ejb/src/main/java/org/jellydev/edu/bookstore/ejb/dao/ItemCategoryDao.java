@@ -11,7 +11,7 @@ import java.util.List;
 public class ItemCategoryDao implements Dao<ItemCategory> {
 
     @PersistenceContext(unitName = "bs")
-    EntityManager em;
+    private EntityManager em;
 
     @Override
     public ItemCategory get(int id) {

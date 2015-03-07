@@ -1,6 +1,6 @@
 package org.jellydev.edu.bookstore.ejb.dao;
 
-import org.jellydev.edu.bookstore.ejb.model.ItemType;
+import org.jellydev.edu.bookstore.ejb.model.OrderType;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -8,28 +8,28 @@ import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Stateless
-public class ItemTypeDao implements Dao<ItemType> {
+public class OrderTypeDao implements Dao<OrderType> {
 
     @PersistenceContext(unitName = "bs")
     private EntityManager em;
 
     @Override
-    public ItemType get(int id) {
-        return em.find(ItemType.class, id);
+    public OrderType get(int id) {
+        return em.find(OrderType.class, id);
     }
 
     @Override
-    public List<ItemType> get() {
-        return em.createNamedQuery("ItemType.GetAll").getResultList();
+    public List<OrderType> get() {
+        return em.createNamedQuery("OrderType.GetAll").getResultList();
     }
 
     @Override
-    public void remove(ItemType type) {
+    public void remove(OrderType type) {
         em.remove(type);
     }
 
     @Override
-    public void set(ItemType type) {
+    public void set(OrderType type) {
         if (get().contains(type))
             em.merge(type);
         else
