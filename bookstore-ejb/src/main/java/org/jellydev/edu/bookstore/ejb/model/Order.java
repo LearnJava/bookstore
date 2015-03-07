@@ -24,8 +24,12 @@ public class Order implements Serializable {
     @Column(name = "bs_order_total_price")
     private int totalPrice;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "orderedItem")
-    private List<OrderedItems> orderedItems;
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinTable(name = "bs_ordered_items",
+            joinColumns = @JoinColumn(name = "bs_order"),
+            inverseJoinColumns = @JoinColumn(name = "bs_item")
+    )
+    private List<Item> items;
 
     public Order() {
     }
@@ -56,14 +60,6 @@ public class Order implements Serializable {
 
     public void setTotalPrice(int totalPrice) {
         this.totalPrice = totalPrice;
-    }
-
-    public List<OrderedItems> getOrderedItems() {
-        return orderedItems;
-    }
-
-    public void setOrderedItems(List<OrderedItems> orderedItems) {
-        this.orderedItems = orderedItems;
     }
 
 }

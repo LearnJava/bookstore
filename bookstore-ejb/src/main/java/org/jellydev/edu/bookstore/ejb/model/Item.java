@@ -3,6 +3,7 @@ package org.jellydev.edu.bookstore.ejb.model;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "bs_item")
@@ -29,6 +30,13 @@ public abstract class Item implements Serializable {
 
     @Column(name = "price")
     private int price;
+
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinTable(name = "bs_ordered_items",
+            joinColumns = @JoinColumn(name = "bs_item"),
+            inverseJoinColumns = @JoinColumn(name = "bs_order")
+    )
+    private List<Order> orders;
 
     public Item() {
     }
