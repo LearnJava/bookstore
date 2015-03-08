@@ -6,6 +6,9 @@ import java.util.List;
 
 @Entity
 @Table(name = "bs_publisher")
+@NamedQueries(
+        @NamedQuery(name = "Publisher.GetAll", query = "select p from Publisher p")
+)
 public class Publisher implements Serializable {
 
     @Id

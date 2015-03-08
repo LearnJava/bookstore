@@ -6,6 +6,9 @@ import java.util.Date;
 
 @Entity
 @Table(name = "bs_comment")
+@NamedQueries(
+        @NamedQuery(name = "Comment.GetAll", query = "select c from Comment c")
+)
 public class Comment implements Serializable {
 
     @Id
