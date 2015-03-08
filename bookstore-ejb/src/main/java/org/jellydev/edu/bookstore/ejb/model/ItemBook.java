@@ -23,6 +23,9 @@ public class ItemBook extends Item implements Serializable {
     @Column(name = "bs_item_book_publish_date")
     private Date publishDate;
 
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, targetEntity = Publisher.class)
+    private Publisher publisher;
+
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinTable(name = "bs_author_book",
             joinColumns = @JoinColumn(name = "bs_book"),
@@ -56,6 +59,22 @@ public class ItemBook extends Item implements Serializable {
 
     public void setPublishDate(Date publishDate) {
         this.publishDate = publishDate;
+    }
+
+    public Publisher getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(Publisher publisher) {
+        this.publisher = publisher;
+    }
+
+    public List<Author> getAuthors() {
+        return authors;
+    }
+
+    public void setAuthors(List<Author> authors) {
+        this.authors = authors;
     }
 
 }

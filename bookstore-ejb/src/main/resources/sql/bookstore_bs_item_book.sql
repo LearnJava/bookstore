@@ -28,8 +28,9 @@ CREATE TABLE `bs_item_book` (
   `bs_item_book_author` int(11) NOT NULL,
   `bs_item_book_isbn` varchar(15) NOT NULL,
   `bs_item_book_publish_date` date NOT NULL,
-  KEY `bs_item_book_author_idx` (`bs_item_book_author`),
-  CONSTRAINT `bs_item_book_author` FOREIGN KEY (`bs_item_book_author`) REFERENCES `bs_author` (`bs_author_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  `bs_item_book_publisher` int(11) NOT NULL,
+  KEY `bs_item_book_publisher_idx` (`bs_item_book_publisher`),
+  CONSTRAINT `bs_item_book_publisher` FOREIGN KEY (`bs_item_book_publisher`) REFERENCES `bs_publisher` (`bs_publisher_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -51,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-03-08 15:24:42
+-- Dump completed on 2015-03-08 15:42:32

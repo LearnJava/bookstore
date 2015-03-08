@@ -32,7 +32,6 @@ CREATE TABLE `bs_order` (
   PRIMARY KEY (`bs_order_id`),
   KEY `bs_order_owner_idx` (`bs_order_owner`),
   KEY `bs_order_type_idx` (`bs_order_type`),
-  CONSTRAINT `bs_order_owner` FOREIGN KEY (`bs_order_owner`) REFERENCES `bs_user` (`bs_user_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `bs_order_type` FOREIGN KEY (`bs_order_type`) REFERENCES `bs_order_type` (`bs_order_type_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -55,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-03-08 15:24:42
+-- Dump completed on 2015-03-08 15:42:32
