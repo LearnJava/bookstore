@@ -3,6 +3,7 @@ package org.jellydev.edu.bookstore.ejb.model;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "bs_user")
@@ -37,6 +38,9 @@ public class User implements Serializable {
 
     @Column(name = "bs_user_address")
     private String address;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
+    private List<Comment> comments;
 
     public User() {
     }
@@ -99,6 +103,14 @@ public class User implements Serializable {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
     }
 
 }

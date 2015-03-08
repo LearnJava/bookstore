@@ -28,10 +28,19 @@ public abstract class Item implements Serializable {
     @PrimaryKeyJoinColumn
     private ItemCategory category;
 
+    @Column(name = "bs_item_header")
+    private String header;
+
     @Column(name = "bs_item_description")
     private String description;
 
-    @Column(name = "price")
+    @Column(name = "bs_item_img")
+    private byte[] img;
+
+    @Column(name = "bs_item_rating")
+    private int rating;
+
+    @Column(name = "bs_item_price")
     private int price;
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
@@ -40,6 +49,9 @@ public abstract class Item implements Serializable {
             inverseJoinColumns = @JoinColumn(name = "bs_order")
     )
     private List<Order> orders;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "item")
+    private List<Comment> comments;
 
     public Item() {
     }
@@ -72,6 +84,14 @@ public abstract class Item implements Serializable {
         this.category = category;
     }
 
+    public String getHeader() {
+        return header;
+    }
+
+    public void setHeader(String header) {
+        this.header = header;
+    }
+
     public String getDescription() {
         return description;
     }
@@ -80,12 +100,44 @@ public abstract class Item implements Serializable {
         this.description = description;
     }
 
+    public byte[] getImg() {
+        return img;
+    }
+
+    public void setImg(byte[] img) {
+        this.img = img;
+    }
+
+    public int getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
+
     public int getPrice() {
         return price;
     }
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public List<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
     }
 
 }

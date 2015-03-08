@@ -18,27 +18,27 @@ USE `bookstore`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `bs_item_type`
+-- Table structure for table `bs_author_book`
 --
 
-DROP TABLE IF EXISTS `bs_item_type`;
+DROP TABLE IF EXISTS `bs_author_book`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `bs_item_type` (
-  `bs_item_type_id` int(11) NOT NULL AUTO_INCREMENT,
-  `bs_item_type_header` varchar(45) NOT NULL,
-  `bs_item_type_description` varchar(200) DEFAULT NULL,
-  PRIMARY KEY (`bs_item_type_id`)
+CREATE TABLE `bs_author_book` (
+  `bs_author_book_id` int(11) NOT NULL AUTO_INCREMENT,
+  `bs_author` int(11) NOT NULL,
+  `bs_book` int(11) NOT NULL,
+  PRIMARY KEY (`bs_author_book_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `bs_item_type`
+-- Dumping data for table `bs_author_book`
 --
 
-LOCK TABLES `bs_item_type` WRITE;
-/*!40000 ALTER TABLE `bs_item_type` DISABLE KEYS */;
-/*!40000 ALTER TABLE `bs_item_type` ENABLE KEYS */;
+LOCK TABLES `bs_author_book` WRITE;
+/*!40000 ALTER TABLE `bs_author_book` DISABLE KEYS */;
+/*!40000 ALTER TABLE `bs_author_book` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

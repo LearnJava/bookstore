@@ -18,27 +18,29 @@ USE `bookstore`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `bs_item_type`
+-- Table structure for table `bs_comment`
 --
 
-DROP TABLE IF EXISTS `bs_item_type`;
+DROP TABLE IF EXISTS `bs_comment`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `bs_item_type` (
-  `bs_item_type_id` int(11) NOT NULL AUTO_INCREMENT,
-  `bs_item_type_header` varchar(45) NOT NULL,
-  `bs_item_type_description` varchar(200) DEFAULT NULL,
-  PRIMARY KEY (`bs_item_type_id`)
+CREATE TABLE `bs_comment` (
+  `bs_comment_id` int(11) NOT NULL AUTO_INCREMENT,
+  `bs_comment_date` datetime NOT NULL,
+  `bs_comment_item` int(11) NOT NULL,
+  `bs_comment_user` int(11) NOT NULL,
+  `bs_comment_message` text NOT NULL,
+  PRIMARY KEY (`bs_comment_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `bs_item_type`
+-- Dumping data for table `bs_comment`
 --
 
-LOCK TABLES `bs_item_type` WRITE;
-/*!40000 ALTER TABLE `bs_item_type` DISABLE KEYS */;
-/*!40000 ALTER TABLE `bs_item_type` ENABLE KEYS */;
+LOCK TABLES `bs_comment` WRITE;
+/*!40000 ALTER TABLE `bs_comment` DISABLE KEYS */;
+/*!40000 ALTER TABLE `bs_comment` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -50,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-03-08 15:24:42
+-- Dump completed on 2015-03-08 15:24:41

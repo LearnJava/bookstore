@@ -18,7 +18,7 @@ public class ItemType implements Serializable {
     @Column(name = "bs_item_type_header")
     private String header;
 
-    @Column(name = "bs_item_type_descripion")
+    @Column(name = "bs_item_type_description")
     private String description;
 
     public ItemType() {

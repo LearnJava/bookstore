@@ -26,9 +26,13 @@ DROP TABLE IF EXISTS `bs_item`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `bs_item` (
   `bs_item_id` int(11) NOT NULL AUTO_INCREMENT,
+  `bs_item_add_date` datetime NOT NULL,
   `bs_item_type` int(11) NOT NULL,
   `bs_item_category` int(11) NOT NULL,
+  `bs_item_header` varchar(150) NOT NULL,
   `bs_item_description` text NOT NULL,
+  `bs_item_img` blob,
+  `bs_item_rating` int(11) DEFAULT NULL,
   `bs_item_price` int(11) NOT NULL,
   PRIMARY KEY (`bs_item_id`),
   KEY `bs_book_category_idx` (`bs_item_category`),
@@ -56,4 +60,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-03-07 13:47:41
+-- Dump completed on 2015-03-08 15:24:42
